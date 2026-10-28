@@ -7,7 +7,9 @@
 ---
 
 ## Dataset
-`indian-netflix-churn-dataset-v2.csv`
+The dashboard and pipeline expect `data/indian_netflix_churn_dataset_v2.csv`.
+The customer-level dataset is not included in this repository. Add a dataset
+you are authorized to use at that path, or upload a CSV in the dashboard.
 
 | Column | Description |
 |---|---|
@@ -39,7 +41,7 @@
 
 ```
 customer_churn_project/
-├── data/                  ← Place CSV here
+├── data/                  ← Place the authorized CSV here (not tracked)
 ├── notebooks/
 │   └── 05_ml_models.ipynb ← Full ML pipeline
 ├── src/
@@ -50,7 +52,7 @@ customer_churn_project/
 ├── dashboard/
 │   └── app.py             ← Streamlit dashboard
 ├── models/                ← Saved models (auto-created)
-├── outputs/               ← Charts & CSV (auto-created)
+├── outputs/               ← Charts & CSV (auto-created; CSVs are not tracked)
 └── requirements.txt
 ```
 
@@ -61,6 +63,10 @@ cd customer_churn_project
 pip install -r requirements.txt
 ```
 
+Put an authorized dataset at `data/indian_netflix_churn_dataset_v2.csv` before
+running the pipeline. Customer-level input data and generated prediction CSVs
+are excluded from version control.
+
 ## Run Dashboard
 
 ```bash
@@ -69,9 +75,13 @@ streamlit run dashboard/app.py
 
 ## Run ML Pipeline
 
-Open `notebooks/05_ml_models.ipynb` in Jupyter and run all cells.
+Run the complete pipeline from the project root:
 
-> Place `indian-netflix-churn-dataset-v2.csv` in the `data/` folder first.
+```bash
+python run_pipeline.py
+```
+
+You can also open a notebook under `notebooks/` in Jupyter and run its cells.
 
 ## ML Models
 
